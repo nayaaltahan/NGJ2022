@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Transform spaceShip;
     [SerializeField] private float speed;
+    [SerializeField] private float rotationSpeed;
     [SerializeField] private float screenXPadding, screenYPadding = 100f;
 
     private float maxX, maxY, minX, minY;
@@ -17,10 +18,11 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        minX = cam.ScreenToWorldPoint(new Vector3(screenXPadding, 0, 10)).x;
-        maxX = cam.ScreenToWorldPoint(new Vector3(Screen.width - screenXPadding, 0, 10)).x;
-        minY = cam.ScreenToWorldPoint(new Vector3(0, screenYPadding, 10)).y;
-        maxY = cam.ScreenToWorldPoint(new Vector3(0, Screen.height - screenYPadding, 10)).y;
+        var zDistanceToCam = Mathf.Abs(spaceShip.transform.position.z - cam.transform.position.z);
+        minX = cam.ScreenToWorldPoint(new Vector3(screenXPadding, 0, zDistanceToCam)).x;
+        maxX = cam.ScreenToWorldPoint(new Vector3(Screen.width - screenXPadding, 0, zDistanceToCam)).x;
+        minY = cam.ScreenToWorldPoint(new Vector3(0, screenYPadding, zDistanceToCam)).y;
+        maxY = cam.ScreenToWorldPoint(new Vector3(0, Screen.height - screenYPadding, zDistanceToCam)).y;
     }
 
     // Update is called once per frame
@@ -28,6 +30,20 @@ public class PlayerController : MonoBehaviour
     {
         var direction = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
         MoveSpaceship(direction * speed * Time.deltaTime);
+        RotateSpaceShip(direction);
+    }
+
+    private void RotateSpaceShip(Vector3 direction)
+    {
+        var maxRot = 30f;
+        // Calculate yaw, pitch, and roll based on direction
+        var yaw = Mathf.Clamp(direction.x * rotationSpeed, -maxRot, maxRot);
+        var pitch = Mathf.Clamp(direction.y * -rotationSpeed, -maxRot, maxRot);
+        var roll = Mathf.Clamp(direction.z * rotationSpeed, -maxRot, maxRot);
+        
+        // Lerp rotate the spaceship
+        spaceShip.transform.rotation = Quaternion.Lerp(spaceShip.transform.rotation, Quaternion.Euler(pitch, yaw, roll), Time.deltaTime * rotationSpeed);
+        
     }
 
 
