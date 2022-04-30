@@ -6,19 +6,23 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private GameObject spaceShip;
+    [SerializeField] private Transform spaceShip;
     [SerializeField] private float speed;
+    [SerializeField] private float rotationSpeed;
     [SerializeField] private float screenXPadding, screenYPadding = 100f;
-    
 
     private float maxX, maxY, minX, minY;
+
+    [SerializeField]
+    private Camera cam;
     // Start is called before the first frame update
     void Start()
     {
-        minX = Camera.main.ScreenToWorldPoint(new Vector3(screenXPadding, 0, 1)).x;
-        maxX = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - screenXPadding, 0, 1)).x;
-        minY = Camera.main.ScreenToWorldPoint(new Vector3(screenYPadding, 0, 1)).y;
-        maxY = Camera.main.ScreenToWorldPoint(new Vector3(Screen.height - screenYPadding, 0, 1)).y;
+        var zDistanceToCam = Mathf.Abs(spaceShip.transform.position.z - cam.transform.position.z);
+        minX = cam.ScreenToWorldPoint(new Vector3(screenXPadding, 0, zDistanceToCam)).x;
+        maxX = cam.ScreenToWorldPoint(new Vector3(Screen.width - screenXPadding, 0, zDistanceToCam)).x;
+        minY = cam.ScreenToWorldPoint(new Vector3(0, screenYPadding, zDistanceToCam)).y;
+        maxY = cam.ScreenToWorldPoint(new Vector3(0, Screen.height - screenYPadding, zDistanceToCam)).y;
     }
 
     // Update is called once per frame
@@ -26,17 +30,30 @@ public class PlayerController : MonoBehaviour
     {
         var direction = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
         MoveSpaceship(direction * speed * Time.deltaTime);
+        RotateSpaceShip(direction);
+    }
+
+    private void RotateSpaceShip(Vector3 direction)
+    {
+        var maxRot = 30f;
+        // Calculate yaw, pitch, and roll based on direction
+        var yaw = Mathf.Clamp(direction.x * rotationSpeed, -maxRot, maxRot);
+        var pitch = Mathf.Clamp(direction.y * -rotationSpeed, -maxRot, maxRot);
+        var roll = Mathf.Clamp(direction.z * rotationSpeed, -maxRot, maxRot);
+        
+        // Lerp rotate the spaceship
+        spaceShip.transform.rotation = Quaternion.Lerp(spaceShip.transform.rotation, Quaternion.Euler(pitch, yaw, roll), Time.deltaTime * rotationSpeed);
+        
     }
 
 
     public void MoveSpaceship(Vector3 direction)
     {
         // Move spaceship and limit position to screen max and min
-        spaceShip.transform.position = new Vector3(
-            Mathf.Clamp(spaceShip.transform.position.x + direction.x, minX, maxX),
-            Mathf.Clamp(spaceShip.transform.position.y + direction.y, minY, maxY),
+        spaceShip.position = new Vector3(
+            Mathf.Clamp(spaceShip.position.x + direction.x, minX, maxX),
+            Mathf.Clamp(spaceShip.position.y + direction.y, minY, maxY),
             0);
-        
     }
 
     private void OnGUI()
@@ -49,9 +66,8 @@ public class PlayerController : MonoBehaviour
         // Set IMGUI style to style object
         GUI.skin.label = style;
 
-
         // Show a textbox with transform position
-        GUI.Label(new Rect(10, 10, 300, 20), $"Position: {spaceShip.transform.position}");
+        GUI.Label(new Rect(10, 10, 300, 20), $"Position: {spaceShip.position}");
         
         //show a textbox with minX, maxX, minY, maxY
         GUI.Label(new Rect(10, 30, 300, 20), $"minX: {minX}, maxX: {maxX}, minY: {minY}, maxY: {maxY}");
