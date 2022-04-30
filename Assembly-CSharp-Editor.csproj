@@ -1038,6 +1038,18 @@
      <Reference Include="Unity.RenderPipelines.Core.Editor">
      <HintPath>/Users/dkNaAlTa/dev/code/nordicgamejam22/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.ProBuilder">
+     <HintPath>/Users/dkNaAlTa/dev/code/nordicgamejam22/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.ProBuilder.AddOns.Editor">
+     <HintPath>/Users/dkNaAlTa/dev/code/nordicgamejam22/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.ProBuilder.Editor">
+     <HintPath>/Users/dkNaAlTa/dev/code/nordicgamejam22/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+     <HintPath>/Users/dkNaAlTa/dev/code/nordicgamejam22/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
