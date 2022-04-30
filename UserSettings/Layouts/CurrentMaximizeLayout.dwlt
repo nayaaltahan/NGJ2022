@@ -69,7 +69,7 @@ MonoBehaviour:
   m_UseMipMap: 0
   m_VSyncEnabled: 0
   m_Gizmos: 0
-  m_Stats: 1
+  m_Stats: 0
   m_SelectedSizes: 03000000000000001200000006000000000000000000000000000000000000000000000000000000
   m_ZoomArea:
     m_HRangeLocked: 0
@@ -179,21 +179,21 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: d897f9ff1020ffff1420ffff1820ffffc225ffffc825ffff48ecffff
+      m_ExpandedIDs: 28f6faff72c4fbff3c33fcff6adefeff32fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: laser(Clone)
-        m_OriginalName: laser(Clone)
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -558184
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 3}
       m_SearchString: 
@@ -503,9 +503,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 18.89937, y: 19.273117, z: -3.7686238}
+    m_Target: {x: -9.088758, y: 9.657176, z: -13.000578}
     speed: 2
-    m_Value: {x: 18.89937, y: 19.273117, z: -3.7686238}
+    m_Value: {x: -9.088758, y: 9.657176, z: -13.000578}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -552,13 +552,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.16435874, y: 0.04911081, z: -0.008214102, w: 0.9851732}
+    m_Target: {x: 0.3178622, y: 0.16693506, z: -0.056977164, w: 0.93162054}
     speed: 2
-    m_Value: {x: 0.16435386, y: 0.049109355, z: -0.008213858, w: 0.98514396}
+    m_Value: {x: 0.3178516, y: 0.16692948, z: -0.056975264, w: 0.9315894}
   m_Size:
-    m_Target: 6.547152
+    m_Target: 1.482938
     speed: 2
-    m_Value: 6.547152
+    m_Value: 1.482938
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -778,7 +778,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -403684
+  m_LastSelectedObjectID: 213532
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -821,22 +821,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/- Quick Tips -
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/- Quick Tips -
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\adams\Documents\github\Unity\NGJ2022
   m_LockTracker:
     m_IsLocked: 1
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 861d0100
-    m_LastClickedID: 73094
-    m_ExpandedIDs: 00000000721b0100741b0100761b0100781b010000ca9a3bffffff7f
+    m_SelectedIDs: e6240100
+    m_LastClickedID: 74982
+    m_ExpandedIDs: 00000000b4220100b6220100b8220100ba22010000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -864,7 +864,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 0e3a0100
     m_LastClickedID: 80398
-    m_ExpandedIDs: 00000000721b0100741b0100761b0100781b010000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000b4220100b6220100b8220100ba22010000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -889,8 +889,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 28f6faff
+    m_LastClickedInstanceID: -330200
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300000000000012371300
     m_RenameOverlay:

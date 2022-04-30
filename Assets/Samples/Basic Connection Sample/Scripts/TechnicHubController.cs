@@ -56,7 +56,7 @@ public class TechnicHubController : MonoBehaviour
     {
         if (hub.IsConnected)
         {
-            output.text = "Battery " + hub.BatteryLevel + "%";
+            //output.text = "Battery " + hub.BatteryLevel + "%";
         }
     }
 }
