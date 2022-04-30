@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LEGO.LEGODeviceSDK.Runtime", "LEGO.LEGODeviceSDK.Runtime.csproj", "{e9edfa31-16d9-89d3-6693-eb5e0206c7ef}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{b841f057-74a9-5ccd-574d-4f9daa352553}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LEGO.CUBB.Runtime", "LEGO.CUBB.Runtime.csproj", "{d28eff8d-2a7f-a0fc-a04a-bbec616f2016}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LEGO.WirelessSDK.Runtime", "LEGO.WirelessSDK.Runtime.csproj", "{5994c5b0-a563-6d5b-8f6d-3fc5b1a72870}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LEGO.Logger", "LEGO.Logger.csproj", "{9b772b89-1903-46f9-b679-c3a6b60b8205}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LEGO.WirelessSDK.Editor", "LEGO.WirelessSDK.Editor.csproj", "{8962e51b-c53b-8ff9-6f6e-bfd8b7208a3b}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LEGO.CUBB.Editor", "LEGO.CUBB.Editor.csproj", "{621e5f24-04f0-7d41-8008-70c3f8460c65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LEGO.Logger.Editor", "LEGO.Logger.Editor.csproj", "{520c9ce4-1ffc-c480-8f4e-9367faf11385}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{7f24b348-b0b6-1c40-73dc-c7a36a4680f2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{e9edfa31-16d9-89d3-6693-eb5e0206c7ef}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{e9edfa31-16d9-89d3-6693-eb5e0206c7ef}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{b841f057-74a9-5ccd-574d-4f9daa352553}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{b841f057-74a9-5ccd-574d-4f9daa352553}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{d28eff8d-2a7f-a0fc-a04a-bbec616f2016}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{d28eff8d-2a7f-a0fc-a04a-bbec616f2016}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5994c5b0-a563-6d5b-8f6d-3fc5b1a72870}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5994c5b0-a563-6d5b-8f6d-3fc5b1a72870}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9b772b89-1903-46f9-b679-c3a6b60b8205}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9b772b89-1903-46f9-b679-c3a6b60b8205}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8962e51b-c53b-8ff9-6f6e-bfd8b7208a3b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8962e51b-c53b-8ff9-6f6e-bfd8b7208a3b}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{621e5f24-04f0-7d41-8008-70c3f8460c65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{621e5f24-04f0-7d41-8008-70c3f8460c65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{520c9ce4-1ffc-c480-8f4e-9367faf11385}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{520c9ce4-1ffc-c480-8f4e-9367faf11385}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7f24b348-b0b6-1c40-73dc-c7a36a4680f2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7f24b348-b0b6-1c40-73dc-c7a36a4680f2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
