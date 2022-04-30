@@ -14,7 +14,7 @@ public class Laser : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        Destroy(gameObject, 10.0f);
+        Destroy(gameObject, 4.0f);
     }
 
     private void FixedUpdate()
