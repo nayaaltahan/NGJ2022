@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
             var orientation = orientationSensor.Orientation.normalized;
             // Deadzone
             if (!(Mathf.Abs(orientation.z) <= 0.15f && Mathf.Abs(orientation.x) <= 0.15f))
-                direction = new Vector3(-orientation.z * 1.5f, -orientation.x, 0.0f);
+                direction = new Vector3(orientation.x * 1.5f, -orientation.z * 1.5f, 0.0f);
             else
             {
                 direction = Vector3.zero;

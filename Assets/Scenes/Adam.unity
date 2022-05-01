@@ -174,6 +174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c59a265a07444da6867e45c4a768956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fuelBar: {fileID: 0}
+  fuelController: {fileID: 0}
 --- !u!114 &17340328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1043,6 +1045,7 @@ MonoBehaviour:
   mediumLevels:
   - {fileID: 8831351314103859650, guid: 978e243c5f4f344f3860631610d41bd4, type: 3}
   levelSpawnPoint: {fileID: 57786767}
+  currentScore: 0
   currentSpeed: 15
 --- !u!4 &1108538448
 Transform:
@@ -1780,6 +1783,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11018550, guid: 0ce992eeeab05a344b5a4b6e3b82a504, type: 3}
+      propertyPath: autoConnectOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11018550, guid: 0ce992eeeab05a344b5a4b6e3b82a504, type: 3}
+      propertyPath: connectToSpecificHubId
+      value: DC2E6B2B84900000
+      objectReference: {fileID: 0}
     - target: {fileID: 3795412237600960674, guid: 0ce992eeeab05a344b5a4b6e3b82a504,
         type: 3}
       propertyPath: cam
