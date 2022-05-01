@@ -36,6 +36,7 @@ public class Laser : MonoBehaviour
             Debug.Log("Laser hit Asteroidddd");
             var asteroid = other.GetComponent<Asteroid>();
             asteroid.DestroyAsteroid();
+            LevelManager.Instance.currentScore += 50;
 
         }
     }

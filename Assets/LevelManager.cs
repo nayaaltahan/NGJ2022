@@ -3,17 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GameState
+{
+    Playing,
+    Paused
+}
+
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] easyLevels;
     [SerializeField] private GameObject[] mediumLevels;
     [SerializeField] private Transform levelSpawnPoint;
 
-    private int currentScore;
+    public float currentScore;
     [SerializeField] private Queue<GameObject> currentLevels;
 
     [SerializeField] private float currentSpeed = 15;
     public static LevelManager Instance { get; private set; }
+
+    private GameState currentState = GameState.Playing;
+    
 
     private void Start()
     {
@@ -23,6 +32,7 @@ public class LevelManager : MonoBehaviour
             currentLevels = new Queue<GameObject>();
             EnqueueLevel(easyLevels[UnityEngine.Random.Range(0, easyLevels.Length)]);
             StartCoroutine(LevelCoroutine());
+            
         }
         else
         {
@@ -30,6 +40,11 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (currentState == GameState.Playing)
+            currentScore += Time.deltaTime * 10;
+    }
 
     private IEnumerator LevelCoroutine()
     {
@@ -64,6 +79,8 @@ public class LevelManager : MonoBehaviour
             }
             Debug.Log("Front: " + front.name, front);
             front.SetActive(false);
+            if(currentSpeed < 100)
+                currentSpeed += 5;
         }
     }
 

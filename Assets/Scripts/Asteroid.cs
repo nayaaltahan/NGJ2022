@@ -33,7 +33,7 @@ public class Asteroid : MonoBehaviour
             // Instantiate the explosion
             var expl = Instantiate(explosion, transform.position, Quaternion.identity);
             expl.SetActive(true);
-            Destroy(explosion, 5f);
+            Destroy(expl, 5f);
             // Destroy the asteroid
             Destroy(gameObject);
         }
