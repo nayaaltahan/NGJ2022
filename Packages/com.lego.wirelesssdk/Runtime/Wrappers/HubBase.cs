@@ -60,13 +60,24 @@ public class HubBase : MonoBehaviour
     }
     public ILEGODevice device { get; private set; }
     private RGBLight rgbLight = new RGBLight(); // make it one of internal services?
-
+    public static HubBase instance;
     void Awake()
     {
-        if (LEGODeviceManager.Instance == null)
-        {
-            LEGODeviceManager.Initialize();
+        if (instance == null)
+        { 
+            DontDestroyOnLoad(gameObject);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+            if (LEGODeviceManager.Instance == null)
+            {
+                LEGODeviceManager.Initialize();
+            }
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     void Start()

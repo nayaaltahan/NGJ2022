@@ -36,12 +36,18 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         engineSoundInstance = AudioManager.instance.CreateEventInstance(engineSoundPath);
         engineSoundInstance.start();
         // Hub
-        hubBase = hubGameObject.GetComponent<HubBase>();
-        orientationSensor = hubGameObject.GetComponent<OrientationSensor>();
-        forceSensor = hubGameObject.GetComponent<ForceSensor>();
+        hubBase = HubBase.instance;
+        if (hubBase != null)
+        {
+            controlScheme = ControlScheme.HUB;
+            orientationSensor = hubBase.GetComponent<OrientationSensor>();
+            forceSensor = hubBase.GetComponent<ForceSensor>();
+        }
+        
         
         // Camera settings
         var zDistanceToCam = Mathf.Abs(spaceShip.transform.position.z - cam.transform.position.z);
