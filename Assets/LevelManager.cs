@@ -19,9 +19,12 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private Queue<GameObject> currentLevels;
 
     [SerializeField] private float currentSpeed = 15;
+
+    [SerializeField] private GameObject playerModel;
+    [SerializeField] private GameObject explosion;
     public static LevelManager Instance { get; private set; }
 
-    private GameState currentState = GameState.Playing;
+    public GameState currentState { get; private set; } = GameState.Playing;
     
 
     private void Start()
@@ -89,5 +92,13 @@ public class LevelManager : MonoBehaviour
         var levelOb = Instantiate(level, levelSpawnPoint.position, Quaternion.identity);
         levelOb.GetComponent<MovingZones>().speed = currentSpeed;
         currentLevels.Enqueue(levelOb);
+    }
+
+    public void KillPlayer()
+    {
+        var expl = Instantiate(explosion, playerModel.transform.position, Quaternion.identity);
+        expl.SetActive(true);
+        playerModel.SetActive(false);
+        currentState = GameState.Paused;
     }
 }

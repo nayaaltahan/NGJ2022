@@ -49,6 +49,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (LevelManager.Instance.currentState == GameState.Paused)
+            return;
         if (controlScheme == ControlScheme.KEYBOARD)
         {
             direction = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
@@ -58,7 +60,7 @@ public class PlayerController : MonoBehaviour
             var orientation = orientationSensor.Orientation.normalized;
             // Deadzone
             if (!(Mathf.Abs(orientation.z) <= 0.15f && Mathf.Abs(orientation.x) <= 0.15f))
-                direction = new Vector3(orientation.x * 1.5f, -orientation.z * 1.5f, 0.0f);
+                direction = new Vector3(orientation.x * 1.3f, -orientation.z * 1.3f, 0.0f);
             else
             {
                 direction = Vector3.zero;
@@ -127,4 +129,5 @@ public class PlayerController : MonoBehaviour
         else 
             controlScheme = ControlScheme.KEYBOARD;
     }
+    
 }

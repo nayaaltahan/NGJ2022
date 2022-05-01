@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Asteroid : MonoBehaviour
 {
@@ -36,6 +38,14 @@ public class Asteroid : MonoBehaviour
             Destroy(expl, 5f);
             // Destroy the asteroid
             Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            LevelManager.Instance.KillPlayer();
         }
     }
 }
