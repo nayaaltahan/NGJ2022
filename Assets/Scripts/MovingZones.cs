@@ -23,8 +23,8 @@ public class MovingZones : MonoBehaviour
 
         foreach (var child in gameObject.GetComponentsInChildren<Transform>(true))
         {
-            var tag = child.tag;
-            if (tag != "Gorilla" && tag != "Asteroid" && tag != "FuelBrick")
+            var tag = child?.tag;
+            if (tag != "Gorilla" && tag != "Asteroid" && tag != "FuelBrick" && tag != "EndOfLevel")
                 continue;
             child.gameObject.SetActive(true);
             yield return new WaitForSeconds(0.1f);
