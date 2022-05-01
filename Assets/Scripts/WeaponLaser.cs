@@ -31,6 +31,8 @@ public class WeaponLaser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (LevelManager.Instance.currentState == GameState.Paused)
+            return;
         if (playerController.controlScheme == ControlScheme.KEYBOARD)
         {
             shouldShoot = Input.GetButtonDown("Jump");

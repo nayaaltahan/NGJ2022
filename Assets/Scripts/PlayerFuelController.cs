@@ -26,6 +26,7 @@ public class PlayerFuelController : MonoBehaviour
             // unity log message: "Fuel is empty" 
             Debug.Log("Fuel is empty");
             StopCoroutine(SpendFuel());
+            LevelManager.Instance.KillPlayer();
         }
     }
     
