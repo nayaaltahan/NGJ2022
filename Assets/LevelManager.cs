@@ -1,0 +1,76 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class LevelManager : MonoBehaviour
+{
+    [SerializeField] private GameObject[] easyLevels;
+    [SerializeField] private GameObject[] mediumLevels;
+    [SerializeField] private Transform levelSpawnPoint;
+
+    private int currentScore;
+    [SerializeField] private Queue<GameObject> currentLevels;
+
+    [SerializeField] private float currentSpeed = 15;
+    public static LevelManager Instance { get; private set; }
+
+    private void Start()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            currentLevels = new Queue<GameObject>();
+            EnqueueLevel(easyLevels[UnityEngine.Random.Range(0, easyLevels.Length)]);
+            StartCoroutine(LevelCoroutine());
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
+    private IEnumerator LevelCoroutine()
+    {
+        yield return new WaitForSeconds(11);
+        EnqueueLevel(easyLevels[UnityEngine.Random.Range(0, easyLevels.Length)]);
+
+    }
+
+    
+    public void DequeueLevel()
+    {
+        Debug.Log("Dequeuing level");
+        if (currentLevels.Count > 0)
+        {
+            var front = currentLevels.Dequeue();
+            // if score is above certian point, likelyhood to spawn a medium level is higher
+            if (currentScore > 10)
+            {
+                var random = UnityEngine.Random.Range(0, 100);
+                if (random < 50)
+                {
+                    EnqueueLevel(mediumLevels[UnityEngine.Random.Range(0, mediumLevels.Length)]);
+                }
+                else
+                {
+                    EnqueueLevel(easyLevels[UnityEngine.Random.Range(0, easyLevels.Length)]);
+                }
+            }
+            else
+            {
+                EnqueueLevel(easyLevels[UnityEngine.Random.Range(0, easyLevels.Length)]);
+            }
+            Debug.Log("Front: " + front.name, front);
+            front.SetActive(false);
+        }
+    }
+
+    private void EnqueueLevel(GameObject level)
+    {
+        var levelOb = Instantiate(level, levelSpawnPoint.position, Quaternion.identity);
+        levelOb.GetComponent<MovingZones>().speed = currentSpeed;
+        currentLevels.Enqueue(levelOb);
+    }
+}
