@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,7 +34,7 @@ public class PlayerFuelController : MonoBehaviour
         while (currentFuel > 0)
         {
             currentFuel -= fuelPerSecond * Time.deltaTime;
-            yield return new WaitForSeconds(1);
+            yield return null;
         }
     }
     
@@ -44,5 +45,10 @@ public class PlayerFuelController : MonoBehaviour
         {
             currentFuel = fullFuel;
         }
+    }
+
+    private void OnGUI()
+    {
+        GUI.Label(new Rect(10, 110, 100, 20), "Fuel: " + currentFuel);
     }
 }

@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class FuelUI : MonoBehaviour
 {
-    public Image fuelBar;
+    public Slider fuelBar;
     public PlayerFuelController fuelController;
  
     void Update()
     {
-        fuelBar.fillAmount = fuelController.currentFuel / fuelController.fullFuel;
+        fuelBar.value = fuelController.currentFuel;
     }
     
 }
