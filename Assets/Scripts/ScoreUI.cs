@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ScoreUI : MonoBehaviour
 {
-    public TMP_Text scoreDisplay;
+    public TextMeshProUGUI scoreDisplay;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +16,6 @@ public class ScoreUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreDisplay.text = "Score: " + LevelManager.instance.score;
+        scoreDisplay.SetText("Score: " + LevelManager.Instance.currentScore);
     }
 }
