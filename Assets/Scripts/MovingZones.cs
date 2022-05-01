@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,25 @@ public class MovingZones : MonoBehaviour
     void Start()
     {
         
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(OnEnableCoroutine());
+    }
+
+    IEnumerator OnEnableCoroutine()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        foreach (var child in gameObject.GetComponentsInChildren<Transform>(true))
+        {
+            var tag = child.tag;
+            if (tag != "Gorilla" && tag != "Asteroid" && tag != "FuelBrick")
+                continue;
+            child.gameObject.SetActive(true);
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
     // Update is called once per frame

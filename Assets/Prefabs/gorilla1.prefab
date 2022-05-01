@@ -57914,11 +57914,11 @@ GameObject:
   - component: {fileID: 9165688383475523003}
   m_Layer: 0
   m_Name: gorilla1
-  m_TagString: Untagged
+  m_TagString: Gorilla
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7320545481297690627
 Transform:
   m_ObjectHideFlags: 0

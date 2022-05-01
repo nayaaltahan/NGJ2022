@@ -7,14 +7,13 @@ using Random = UnityEngine.Random;
 public class FuelBrick : MonoBehaviour
 {
     private Vector3 rotationDirection;
-    public PlayerFuelController playerFuelController;
+
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         // Set a random rotation
         rotationDirection = new Vector3(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
-        playerFuelController = GameObject.FindWithTag("Player").GetComponent<PlayerFuelController>();
     }
 
     // Update is called once per frame
@@ -30,8 +29,8 @@ public class FuelBrick : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             AudioManager.instance.PlayOneShot("event:/Effects/Fuel_PickUp");
-            playerFuelController.fuelParticles.SetActive(true);
-            playerFuelController.Refuel();
+            PlayerFuelController.Instance.fuelParticles.SetActive(true);
+            PlayerFuelController.Instance.Refuel();
             Destroy(gameObject);
         }
     }

@@ -14,9 +14,18 @@ public class PlayerFuelController : MonoBehaviour
     public GameObject fuelParticles;
 
     private float fuelParticleAliveTime = 0;
+
+    public static PlayerFuelController Instance;
     // Start is called before the first frame update
     void Start()
     {
+        if (Instance == null)
+            Instance = this;
+        else
+        {
+            Debug.LogError("TWO PLAYER FUELS ACTIVE");
+            Destroy(gameObject);
+        }
         currentFuel = fullFuel;
         StartCoroutine(SpendFuel());
     }
