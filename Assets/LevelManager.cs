@@ -22,6 +22,7 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private GameObject playerModel;
     [SerializeField] private GameObject explosion;
+    public GameObject gameoverPanel;
     public static LevelManager Instance { get; private set; }
 
     public GameState currentState { get; private set; } = GameState.Playing;
@@ -100,5 +101,11 @@ public class LevelManager : MonoBehaviour
         expl.SetActive(true);
         playerModel.SetActive(false);
         currentState = GameState.Paused;
+        gameoverPanel.SetActive(true);
+
+    }
+    
+    void doExitGame() {
+        Application.Quit();
     }
 }
