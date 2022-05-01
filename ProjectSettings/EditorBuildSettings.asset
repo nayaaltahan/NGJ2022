@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Samples/Basic Connection Sample/Scenes/Sample Scene.unity
     guid: 5c57f8106731e4b1388afea2d7c969c0
+  - enabled: 1
+    path: Assets/Scenes/Adam.unity
+    guid: ec38a005ff7c8c84d89608ffb9172574
   m_configObjects: {}
