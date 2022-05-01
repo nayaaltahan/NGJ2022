@@ -16,6 +16,6 @@ public class ScoreUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreDisplay.SetText("Score: " + LevelManager.Instance.currentScore);
+        scoreDisplay.SetText(Mathf.RoundToInt(LevelManager.Instance.currentScore).ToString());
     }
 }
