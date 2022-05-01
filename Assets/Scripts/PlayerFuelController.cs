@@ -10,7 +10,10 @@ public class PlayerFuelController : MonoBehaviour
     public float currentFuel;
     public float fuelPerSecond = 5f;
     public float fuelEarned = 20f;
-    
+
+    public GameObject fuelParticles;
+
+    private float fuelParticleAliveTime = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,17 @@ public class PlayerFuelController : MonoBehaviour
             Debug.Log("Fuel is empty");
             StopCoroutine(SpendFuel());
             LevelManager.Instance.KillPlayer();
+        }
+
+        if (fuelParticles.activeSelf)
+        {
+            fuelParticleAliveTime += Time.deltaTime;
+        }
+
+        if (fuelParticleAliveTime >= 2)
+        {
+            fuelParticles.SetActive(false);
+            fuelParticleAliveTime = 0.0f;
         }
     }
     

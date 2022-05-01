@@ -29,6 +29,8 @@ public class FuelBrick : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            AudioManager.instance.PlayOneShot("event:/Effects/Fuel_PickUp");
+            playerFuelController.fuelParticles.SetActive(true);
             playerFuelController.Refuel();
             Destroy(gameObject);
         }

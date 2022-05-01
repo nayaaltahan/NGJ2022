@@ -34,6 +34,7 @@ public class Asteroid : MonoBehaviour
             isExploding = true;
             // Instantiate the explosion
             var expl = Instantiate(explosion, transform.position, Quaternion.identity);
+            AudioManager.instance.Play3DOneShot("event:/Effects/Explosion", transform.position);
             expl.SetActive(true);
             Destroy(expl, 5f);
             // Destroy the asteroid

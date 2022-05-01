@@ -12,10 +12,15 @@ public class WeaponLaser : MonoBehaviour
     [SerializeField] private ForceSensor forceSensor;
 
     [SerializeField] private float shootDelay = 0.3f;
+
+    private string laserEventPath = "event:/Player/Shoot";
     
     private float timeSinceLastShot = 0;
     
     private PlayerController playerController;
+
+
+    private FMOD.Studio.EventInstance laserEventInstance;
     
     
     
@@ -23,6 +28,7 @@ public class WeaponLaser : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        laserEventInstance = AudioManager.instance.CreateEventInstance(laserEventPath);
         playerController = GetComponent<PlayerController>();
     }
 
@@ -58,5 +64,6 @@ public class WeaponLaser : MonoBehaviour
         
         laser.GetComponent<Laser>().Shoot(transform.forward);
         laser2.GetComponent<Laser>().Shoot(transform.forward);
+        laserEventInstance.start();
     }
 }

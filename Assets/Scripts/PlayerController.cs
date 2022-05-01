@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float screenXPadding, screenYPadding = 100f;
     [SerializeField] private GameObject hubGameObject;
+    [SerializeField] private string engineSoundPath;
     public ControlScheme controlScheme = ControlScheme.KEYBOARD;
     
     private HubBase hubBase;
@@ -30,9 +31,13 @@ public class PlayerController : MonoBehaviour
     private Vector3 direction;
     [SerializeField]
     private Camera cam;
+
+    public FMOD.Studio.EventInstance engineSoundInstance;
     // Start is called before the first frame update
     void Start()
     {
+        engineSoundInstance = AudioManager.instance.CreateEventInstance(engineSoundPath);
+        engineSoundInstance.start();
         // Hub
         hubBase = hubGameObject.GetComponent<HubBase>();
         orientationSensor = hubGameObject.GetComponent<OrientationSensor>();
@@ -51,6 +56,7 @@ public class PlayerController : MonoBehaviour
     {
         if (LevelManager.Instance.currentState == GameState.Paused)
             return;
+        
         if (controlScheme == ControlScheme.KEYBOARD)
         {
             direction = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
@@ -94,32 +100,32 @@ public class PlayerController : MonoBehaviour
             0);
     }
 
-    private void OnGUI()
-    {
-        // Set UI style and font size
-        GUIStyle style = new GUIStyle();
-        style.fontSize = 20;
-        style.normal.textColor = Color.white;
-        
-        // Set IMGUI style to style object
-        GUI.skin.label = style;
-
-        // Show a textbox with transform position
-        GUI.Label(new Rect(10, 10, 300, 20), $"Position: {spaceShip.position}");
-        
-        //show a textbox with minX, maxX, minY, maxY
-        GUI.Label(new Rect(10, 30, 300, 20), $"minX: {minX}, maxX: {maxX}, minY: {minY}, maxY: {maxY}");
-        
-        // Show a textbox with screen width and height
-        GUI.Label(new Rect(10, 50, 300, 20), $"Screen width: {Screen.width}, height: {Screen.height}");
-        
-        // Show a textbox with mouse position in world space
-        GUI.Label(new Rect(10, 70, 300, 20), $"Mouse position: {Camera.main.ScreenToWorldPoint(Input.mousePosition)}");
-        
-        // show a textbox with direction
-        GUI.Label(new Rect(10, 90, 300, 20), $"Direction: {direction}");
-        
-    }
+    // private void OnGUI()
+    // {
+    //     // Set UI style and font size
+    //     GUIStyle style = new GUIStyle();
+    //     style.fontSize = 20;
+    //     style.normal.textColor = Color.white;
+    //     
+    //     // Set IMGUI style to style object
+    //     GUI.skin.label = style;
+    //
+    //     // Show a textbox with transform position
+    //     GUI.Label(new Rect(10, 10, 300, 20), $"Position: {spaceShip.position}");
+    //     
+    //     //show a textbox with minX, maxX, minY, maxY
+    //     GUI.Label(new Rect(10, 30, 300, 20), $"minX: {minX}, maxX: {maxX}, minY: {minY}, maxY: {maxY}");
+    //     
+    //     // Show a textbox with screen width and height
+    //     GUI.Label(new Rect(10, 50, 300, 20), $"Screen width: {Screen.width}, height: {Screen.height}");
+    //     
+    //     // Show a textbox with mouse position in world space
+    //     GUI.Label(new Rect(10, 70, 300, 20), $"Mouse position: {Camera.main.ScreenToWorldPoint(Input.mousePosition)}");
+    //     
+    //     // show a textbox with direction
+    //     GUI.Label(new Rect(10, 90, 300, 20), $"Direction: {direction}");
+    //     
+    // }
 
 
     public void SetControlSchemeToHub(bool connected)

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMOD.Studio;
 using UnityEngine;
 
 public enum GameState
@@ -97,6 +98,8 @@ public class LevelManager : MonoBehaviour
     public void KillPlayer()
     {
         var expl = Instantiate(explosion, playerModel.transform.position, Quaternion.identity);
+        playerModel.GetComponentInParent<PlayerController>().engineSoundInstance.stop(STOP_MODE.ALLOWFADEOUT);
+        AudioManager.instance.PlayOneShot("event:/Player/Explosion");
         expl.SetActive(true);
         playerModel.SetActive(false);
         currentState = GameState.Paused;
