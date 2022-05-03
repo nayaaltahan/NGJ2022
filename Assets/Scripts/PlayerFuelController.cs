@@ -16,6 +16,8 @@ public class PlayerFuelController : MonoBehaviour
     private float fuelParticleAliveTime = 0;
 
     public static PlayerFuelController Instance;
+
+    private bool died = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,8 +35,9 @@ public class PlayerFuelController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentFuel <= 0)
+        if (currentFuel <= 0 && !died)
         {
+            died = true;
             // unity log message: "Fuel is empty" 
             Debug.Log("Fuel is empty");
             StopCoroutine(SpendFuel());
@@ -71,8 +74,5 @@ public class PlayerFuelController : MonoBehaviour
         }
     }
 
-    private void OnGUI()
-    {
-        GUI.Label(new Rect(10, 110, 100, 20), "Fuel: " + currentFuel);
-    }
+
 }

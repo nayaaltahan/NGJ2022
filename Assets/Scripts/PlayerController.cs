@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Searcher;
 using UnityEngine;
 
 public enum ControlScheme
@@ -41,7 +37,7 @@ public class PlayerController : MonoBehaviour
         engineSoundInstance.start();
         // Hub
         hubBase = HubBase.instance;
-        if (hubBase != null)
+        if (hubBase != null && hubBase.IsConnected)
         {
             controlScheme = ControlScheme.HUB;
             orientationSensor = hubBase.GetComponent<OrientationSensor>();
@@ -72,7 +68,7 @@ public class PlayerController : MonoBehaviour
             var orientation = orientationSensor.Orientation.normalized;
             // Deadzone
             if (!(Mathf.Abs(orientation.z) <= 0.15f && Mathf.Abs(orientation.x) <= 0.15f))
-                direction = new Vector3(orientation.x * 1.3f, -orientation.z * 1.3f, 0.0f);
+                direction = new Vector3(orientation.x, orientation.z, 0.0f);
             else
             {
                 direction = Vector3.zero;

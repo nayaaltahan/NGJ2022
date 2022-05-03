@@ -30,7 +30,8 @@ public class WeaponLaser : MonoBehaviour
     {
         laserEventInstance = AudioManager.instance.CreateEventInstance(laserEventPath);
         playerController = GetComponent<PlayerController>();
-        forceSensor = HubBase.instance.GetComponent<ForceSensor>();
+        if(HubBase.instance != null)
+            forceSensor = HubBase.instance.GetComponent<ForceSensor>();
     }
 
     private bool shouldShoot = false;

@@ -156,7 +156,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.6
+  m_Radius: 2.36
   m_Center: {x: 0, y: 0.52, z: 0}
 --- !u!54 &8043106319436377282
 Rigidbody:
@@ -186,7 +186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae76743d43384130a6dd2e2420b77fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerFuelController: {fileID: 0}
 --- !u!1 &556492761681164949
 GameObject:
   m_ObjectHideFlags: 0
